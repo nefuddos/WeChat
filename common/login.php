@@ -10,7 +10,11 @@
         $pass = $_POST["pass"];
         if(AccountXML ( $name , $pass ))
         {
-            $array_ifo["tag"] = true;  
+            $array_ifo["tag"] = true;
+            if (!isset($_SESSION['name'])) {
+                $id = session_id();
+                $_SESSION[$id] = $name;
+              }
         }  else {
             $array_ifo["tag"] = false;
         }

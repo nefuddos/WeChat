@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+存放的是对话的数据
+-->
+<root>
+    <dialog>
+        <name>rjg</name>
+        <msg>你好,我的朋友!</msg>
+        <time>2015-04-07 22:18:39</time>
+        <name>rjg</name>
+        <msg>哈哈,终于写成功了!</msg>
+        <time>2015-04-07 22:22:29</time>
+        <name>dgf</name>
+        <msg>恭喜,恭喜啊!哈哈!</msg>
+        <time>2015-04-07 22:23:43</time>
+</root>
