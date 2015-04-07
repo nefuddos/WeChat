@@ -1,4 +1,4 @@
-function ShowMes()
+function ShowMes(msg)
 {
 	var xmlhttp;
 	if (window.XMLHttpRequest)
@@ -13,11 +13,13 @@ function ShowMes()
 	{
 	   if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	   {
-	   		document.getElementById("chat").innerHTML=xmlhttp.responseText;
+	   		document.getElementById("chat").innerHTML=xmlhttp.responseText; //这里能不能改成直接向chat这个div里面直接添加呢?而不是每次都更新
 	   }
 	}
-	xmlhttp.open("GET","",true);  //中间的URL是获取信息的位置，你根具信息的存储位置写一下
-	xmlhttp.send();
+                  var param = "msg="+msg;
+	xmlhttp.open("POST","../common/receiveTheMSG.php?",true);  //中间的URL是获取信息的位置，你根具信息的存储位置写一下
+                  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send(param);
 }
 
 function send_Mes(){
@@ -29,9 +31,11 @@ function send_Mes(){
 		alert("发送信息不能为空！");
 	}
 	else
-	{
-	                      //这一部分如何将数据发送到服务器，以及存在什么文件中方便ajax获取,你写一下
-		ShowMes();        //聊天区域显示信息
+	{                  
+		ShowMes(Mes.value);        //聊天区域显示信息
 	}
 
 }
+
+
+//在js中实现一个函数,功能为当窗体加载的时候,这个函数就会执行,,,,,通过ajax,访问后台的, ../common/state.php
