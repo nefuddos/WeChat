@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+<meta name="name" content="content" charset="utf-8">
+	<title>在线聊天</title>
+<script src="js/jsChat.js" type="text/javascript" charset="utf-8" async defer></script>
+<link href="css/chat.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="content">
+    <span>聊天窗口</span>在线人员
+    <br>
+	<div class="chat" id="chat">
+	</div>
+	<div class="guys" id="user">
+	</div><br/>
+	<div class="pic" id="pic">
+		<img src="picture/1.gif" alt="">
+		<img src="picture/2.gif" alt="">
+		<img src="picture/3.gif" alt="">
+		<img src="picture/4.gif" alt="">
+		<img src="picture/5.gif" alt="">
+		<img src="picture/6.gif" alt="">
+		<img src="picture/7.gif" alt="">
+		<img src="picture/8.jpg" alt="">
+	</div><br>
+	<div class="Mes" id="Message">
+		<textarea name="message" id="message"></textarea>
+	</div>
+	<div class="btn">
+		<input type="button" id="send" name="send" value="发送" onclick="send_Mes()">
+		<input type="button" id="cancle" name="cancle" value="取消">
+	</div>
+	<section class="tips">
+		发送内容不能为空！
+	</section>
+</div>
+</body>
+</html>

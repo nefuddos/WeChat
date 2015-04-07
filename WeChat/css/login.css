@@ -1,0 +1,30 @@
+	.box{
+			width: 300px;
+			height:230px;
+			border: 1px solid;
+			border-radius: 5px;
+			border-color: black;
+			margin:0 auto;
+		}
+		.top{
+			width:300px;
+			height: 30px;
+			line-height: 30px;
+			font-weight: bold;
+			font-size: 16px;
+			background-color: #eee;		}
+		.bot{
+			width: 250px;
+			height: 110px;
+			margin:0 auto;
+			padding:10px;
+			line-height: 26px;
+			text-align: center;
+		}
+		.btom{
+			width:230px;
+			height: 30px;
+			margin-left:85px;
+
+		}
+

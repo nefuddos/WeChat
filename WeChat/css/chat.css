@@ -1,0 +1,80 @@
+*{
+	font-family: "微软雅黑";
+	font-weight: bold;
+	font-size: 12px;
+}
+.content{
+	width:800px;
+	height:550px;
+	border:5px solid;
+	border-color: #aaa;
+	margin:0 auto;
+}
+.content span{
+	margin-right: 520px;
+	margin-left: 8px
+}
+.chat{
+	float:left;
+	width:550px;
+	height:380px;
+	padding-left: 3px;
+	border:3px solid;
+	border-color: #eee;
+	margin-left:8px;
+	overflow-y:scroll; 
+}
+.guys{
+	float:right;
+	padding-left: 3px;
+	width: 210px;
+	height: 380px;
+    border:3px solid;
+    border-color:#eee;
+    margin-right: 8px;
+    overflow-y:scroll; 
+}
+.pic{
+	float: left;
+	width:550px;
+	height:50px;
+	margin-left: 8px;
+	margin-right: 5px;
+}
+.pic img{
+	width:50px;
+	height:50px;
+	margin: 0px auto;
+}
+.Mes{
+	float: left;
+	width:550px;
+	height:50px;
+	border:2px solid;
+	border-color: #eee;
+	margin-left: 8px;
+}
+.Mes textarea{
+	width: 550px;
+	height:60px;
+}
+.btn{
+	width:60px;
+	height:60px;
+	float: right;
+	margin-right: 150px;
+	padding: 5px
+}
+.btn input{
+	width: 80px;
+	height: 30px;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+.tips{
+	font-size: 8px;
+	font-weight: lighter;
+	float: left;
+	margin-top: 15px;
+	margin-left: 10px;
+}
