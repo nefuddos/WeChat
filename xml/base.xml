@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding = "UTF-8"?>
+<root>
+	<title>象牙塔的生活</title>
+		<menu>
+			<a>首页</a>
+			<a>关于</a>	
+			<a>杂谈</a>
+			<a>php学习</a>
+		</menu>
+</root>
