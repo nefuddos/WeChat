@@ -11,8 +11,8 @@
         if(AccountXML ( $name , $pass ))
         {
             $array_ifo["tag"] = true;
-            if (!isset($_SESSION['name'])) {
-                $id = session_id();
+            $id = session_id();
+            if (!isset($_SESSION[$id])) {
                 $_SESSION[$id] = $name;
               }
         }  else {
