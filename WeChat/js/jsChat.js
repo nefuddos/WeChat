@@ -1,4 +1,13 @@
-function ShowMes(msg)
+window.onload=function(){
+    //第一次加载的时候,显示聊天信息,和在线人员的状态
+      bridge("","../common/readMSG.php","chat","POST");
+      onlinePeople();
+};
+function onlinePeople()
+{
+           bridge("","../common/state.php","user","POST");
+}
+function bridge(msg,url,tag,method)//这个函数为公共函数
 {
 	var xmlhttp;
 	if (window.XMLHttpRequest)
@@ -13,17 +22,18 @@ function ShowMes(msg)
 	{
 	   if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	   {
-	   		document.getElementById("chat").innerHTML=xmlhttp.responseText; //这里能不能改成直接向chat这个div里面直接添加呢?而不是每次都更新
+	   		document.getElementById(tag).innerHTML=xmlhttp.responseText; 
 	   }
 	}
                   var param = "msg="+msg;
-	xmlhttp.open("POST","../common/receiveTheMSG.php?",true);  //中间的URL是获取信息的位置，你根具信息的存储位置写一下
+	xmlhttp.open(method,url,true); 
                   xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlhttp.send(param);
 }
 
 function send_Mes(){
 	var Mes=document.getElementById("message");
+                  var url ="../common/receiveTheMSG.php";
 	//var send=document.getElementById("send");
 	//var chat=document.getElementById("chat");
 	//var user=document.getElementById("user");
@@ -31,11 +41,9 @@ function send_Mes(){
 		alert("发送信息不能为空！");
 	}
 	else
-	{                  
-		ShowMes(Mes.value);        //聊天区域显示信息
+	{
+		bridge(Mes.value,url,"chat","POST");        //将聊天信息写入msg.xml文件
+                                    bridge("","../common/readMSG.php","chat","POST");//显示msg.xml文件的信息
 	}
 
 }
-
-
-//在js中实现一个函数,功能为当窗体加载的时候,这个函数就会执行,,,,,通过ajax,访问后台的, ../common/state.php
