@@ -63,9 +63,10 @@ function addDialog($name,$msg,$time)
         */
          $xml = simplexml_load_file($filename);
          $dia = $xml->dialog;
-         $dia->addChild("name",$name);
-         $dia->addChild("msg",$msg);
-         $dia->addChild("time",$time);
+         $ifo = $dia->addChild("ifo");
+         $ifo->addChild("name",$name);
+         $ifo->addChild("msg",$msg);
+         $ifo->addChild("time",$time);
         $newXML = $xml->asXML();  
         $fp = fopen($filename, "w");  
         if(fwrite($fp, $newXML))
@@ -75,6 +76,27 @@ function addDialog($name,$msg,$time)
             //echo '写入失败' . '<br />' ;
         }
         fclose($fp); 
+    }else
+    {
+        echo 'failed to write the msg.xml' ;
+    }
+}
+
+function readDialog()
+{
+    $filename = '../xml/msg.xml';
+    if( file_exists ( $filename) )
+    {
+         $xml = simplexml_load_file($filename);
+         $dia = $xml->dialog->ifo;
+         $length = sizeof($dia);
+         for($i=0;$i<$length;$i++)
+         {
+             echo '<li>姓名:'.$dia[$i]->name.'</li>' ;
+             echo '<li>时间:'.$dia[$i]->time.'</li>' ;
+             echo '<li>对话:'.$dia[$i]->msg.'</li><br />' ;
+         }
+         
     }else
     {
         echo 'failed to write the msg.xml' ;
