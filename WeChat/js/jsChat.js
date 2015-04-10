@@ -44,6 +44,7 @@ function send_Mes(){
 	{
 		bridge(Mes.value,url,"chat","POST");        //将聊天信息写入msg.xml文件
                                     bridge("","../common/readMSG.php","chat","POST");//显示msg.xml文件的信息
+                                    onlinePeople(); //更新在线的显示人数
 	}
 
 }

@@ -8,7 +8,11 @@
         //  echo json_encode($_POST);
         $name = $_POST["name"];
         $pass = $_POST["pass"];
-        if(AccountXML ( $name , $pass ))
+        //$name = "rjg";
+        //$pass = "123";
+        //获取客户端ip
+         $ipifo = getip();
+        if(AccountXML ( $name , $pass ,$ipifo,time()))
         {
             $array_ifo["tag"] = true;
             $id = session_id();
