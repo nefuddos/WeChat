@@ -24,7 +24,17 @@
 		.btom{
 			width:230px;
 			height: 30px;
-			margin-left:85px;
+			margin-left:60px;
 
 		}
-
+.btn{
+	width: 70px;
+	height: 40px;
+	margin:0 auto;
+}
+.c{
+	width: 150px;
+	height: 30px;
+	font-size: 16px;
+	margin:10px auto; 
+}

@@ -154,9 +154,9 @@ function readDialog()
          $length = sizeof($dia);
          for($i=0;$i<$length;$i++)
          {
-             echo '<li>姓名:'.$dia[$i]->name.'</li>' ;
-             echo '<li>时间:'.$dia[$i]->time.'</li>' ;
-             echo '<li>对话:'.$dia[$i]->msg.'</li><br />' ;
+             echo '<li><b>@'.$dia[$i]->name.'</b>&nbsp;&nbsp;&nbsp;&nbsp;<i>'.$dia[$i]->time.'</i></li>' ;
+             //echo '<li>时间:'.$dia[$i]->time.'</li>' ;
+             echo '<li class="dialog">'.$dia[$i]->msg.'</li><br>' ;
          }
          
     }else

@@ -1,6 +1,7 @@
 window.onload=function(){
     //第一次加载的时候,显示聊天信息,和在线人员的状态
       bridge("","../common/readMSG.php","chat","POST");
+      document.getElementById("message").focus();
       onlinePeople();
 };
 function onlinePeople()
@@ -43,8 +44,13 @@ function send_Mes(){
 	else
 	{
 		bridge(Mes.value,url,"chat","POST");        //将聊天信息写入msg.xml文件
-                                    bridge("","../common/readMSG.php","chat","POST");//显示msg.xml文件的信息
-                                    onlinePeople(); //更新在线的显示人数
+        bridge("","../common/readMSG.php","chat","POST");//显示msg.xml文件的信息
+        clear();
+        onlinePeople(); //更新在线的显示人数
 	}
 
+}
+function clear()
+{
+	document.getElementById("message").value="";
 }

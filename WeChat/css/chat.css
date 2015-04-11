@@ -78,3 +78,22 @@
 	margin-top: 15px;
 	margin-left: 10px;
 }
+i{
+	font-weight: lighter;
+	font-family: "微软雅黑";
+	font-size: 5px;
+}
+.dialog{
+	padding:3px 20px; 
+	line-height: 23px;
+	border-radius: 5px;
+	background-color: #eee;
+	font-family: "楷体";
+	font-size: 17px;
+}
+li{
+	list-style: none;
+}
+b{
+	font-size: 14px;
+}
