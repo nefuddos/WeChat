@@ -12,13 +12,13 @@ $arr = getState(time());
 echo '在线用户:<br />' ;
 foreach ( $arr as $key => $value ) {
     if($value){
-        echo '&nbsp;&nbsp;姓名:&nbsp;'.$key.'<br />';
+        echo '&nbsp;&nbsp;<li style="color:#2f2">&nbsp;'.$key.'</li>';
     }
 }
-echo '不在线用户:<br />' ;
+echo '离线用户:<br />' ;
 foreach ( $arr as $key => $value ) {
     if(!$value){
-        echo '&nbsp;&nbsp;姓名:&nbsp;'.$key.'<br />';
+        echo '&nbsp;&nbsp;<li style="color:red">&nbsp;'.$key.'</li>';
     }
 }
 ?>
