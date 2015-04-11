@@ -10,6 +10,29 @@ function AccountXML($name,$password,$ipifo,$time){
         $xml = simplexml_load_file($filename);
         $temp_name = $xml->account->name;
         $temp_password = $xml->account->password;
+		$length = sizeof($temp_name);
+		for($i=0;$i<$length;$i++)
+		{
+			if($name == $temp_name[$i] && $password == $temp_password[$i])
+			{
+				//更新登录用户的时间点和ip
+				$xml -> account -> time[ $i ] = $time ;
+				$xml -> account -> ip[ $i ] = $ipifo ;
+				//写入文件
+				$newXML = $xml->asXML();  
+				$fp = fopen($filename, "w");  
+				if(fwrite($fp, $newXML))
+				{
+				   // echo 'yes'.'<br />' ;
+				}else{
+				   // echo 'no' . '<br />' ;
+				}
+				fclose($fp);
+				return true;
+			}
+		}
+		return false;
+		/*
         if($name == $temp_name[0] && $password == $temp_password[0])
         {
             $xml->account->ip[0] = $ipifo;
@@ -40,7 +63,8 @@ function AccountXML($name,$password,$ipifo,$time){
             return true;
         }  else {
             return false;
-        }     
+        }
+		*/
     } else 
     {
         echo 'failed to access the account.xml' ;

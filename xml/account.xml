@@ -3,11 +3,12 @@
 <account>
     <name>rjg</name>
     <password>123</password>
-    <ip>127.0.0.1</ip>
-    <time name="1428645904">1428646247</time>
+    <ip>::1</ip>
+    <time name="1428645904">1428741030</time>
     
     <name>dgf</name>
     <password>456</password>
+<<<<<<< HEAD
     <ip>127.0.0.1</ip>
     <time>1428769918</time>
 
@@ -15,6 +16,15 @@
     <password>123</password>
     <ip>127.0.0.1</ip>
     <time>1428758031</time>
+=======
+    <ip>::1</ip>
+    <time>1428740910</time>
+
+	<name>another</name>
+    <password>123</password>
+    <ip>::1</ip>
+    <time>1428741007</time>
+>>>>>>> origin/master
     
     <name>mf</name>
     <password>123</password>
