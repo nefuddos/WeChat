@@ -6,8 +6,10 @@
             "tag"=>false,
             );
         //  echo json_encode($_POST);
-        $name = $_POST["name"];
-        $pass = $_POST["pass"];
+        $name = sprintf(%s,$_POST["name"]);
+        $pass = sprintf(%s,$_POST["pass"]);
+        if(!$name || !pass)
+            header("location:../WeChat/login.php");
         //$name = "rjg";
         //$pass = "123";
         //如果当前的session_id有指定的名字，则应该将指定的用户设置为失效状态.然后更新$session_id的值
