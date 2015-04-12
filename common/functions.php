@@ -20,51 +20,25 @@ function AccountXML($name,$password,$ipifo,$time){
 				$xml -> account -> ip[ $i ] = $ipifo ;
 				//写入文件
 				$newXML = $xml->asXML();  
-				$fp = fopen($filename, "w");  
-				if(fwrite($fp, $newXML))
-				{
-				   // echo 'yes'.'<br />' ;
-				}else{
-				   // echo 'no' . '<br />' ;
-				}
+				$fp = fopen($filename, "w");
+                if(flock($fp, LOCK_EX))
+                {
+                    if(fwrite($fp, $newXML))
+                    {
+                       // echo 'yes'.'<br />' ;
+                    }else{
+                       // echo 'no' . '<br />' ;
+                    }
+                    fflush($fp);
+                    flock($fp, LOCK_UN);
+                }else{
+                     return false;//不能登录
+                }
 				fclose($fp);
 				return true;
 			}
 		}
 		return false;
-		/*
-        if($name == $temp_name[0] && $password == $temp_password[0])
-        {
-            $xml->account->ip[0] = $ipifo;
-            $xml->account->time[0] = $time;
-            $newXML = $xml->asXML();  
-            $fp = fopen($filename, "w");  
-            if(fwrite($fp, $newXML))
-            {
-               // echo 'yes'.'<br />' ;
-            }else{
-               // echo 'no' . '<br />' ;
-            }
-            fclose($fp); 
-            return true;
-        }else if($name == $temp_name[1] && $password == $temp_password[1])
-        {
-            $xml->account->ip[1] = $ipifo;
-            $xml->account->time[1] = $time;
-            $newXML = $xml->asXML();  
-            $fp = fopen($filename, "w");  
-            if(fwrite($fp, $newXML))
-            {
-               // echo '写入成功'.'<br />' ;
-            }else{
-               // echo '写入失败' . '<br />' ;
-            }
-            fclose($fp); 
-            return true;
-        }  else {
-            return false;
-        }
-		*/
     } else 
     {
         echo 'failed to access the account.xml' ;
@@ -112,12 +86,21 @@ function updateState($name,$time)
 
         $newXML = $xml -> asXML () ;
         $fp = fopen ( $filename , "w" ) ;
-        if ( fwrite ( $fp , $newXML ) ) {
-            //echo '写入成功'.'<br />' ;
-        } else {
-            //echo '写入失败' . '<br />' ;
+
+        if(flock($fp, LOCK_EX))
+        {
+            if(fwrite($fp, $newXML))
+            {
+                // echo 'yes'.'<br />' ;
+            }else{
+                    // echo 'no' . '<br />' ;
+            }
+        fflush($fp);
+        flock($fp, LOCK_UN);
+        }else{
+            echo 'failed to updateState';
         }
-        fclose ( $fp ) ;
+        fclose($fp);
     }else{
         echo 'failed to access the account.xml' ;
     }
@@ -154,14 +137,22 @@ function addDialog($name,$msg,$time)
          $ifo->addChild("msg",$msg);
          $ifo->addChild("time",$time);
         $newXML = $xml->asXML();  
-        $fp = fopen($filename, "w");  
-        if(fwrite($fp, $newXML))
-        {
-            //echo '写入成功'.'<br />' ;
-        }else{
-            //echo '写入失败' . '<br />' ;
-        }
-        fclose($fp); 
+        $fp = fopen($filename, "w");
+
+                if(flock($fp, LOCK_EX))
+                {
+                    if(fwrite($fp, $newXML))
+                    {
+                       // echo 'yes'.'<br />' ;
+                    }else{
+                       // echo 'no' . '<br />' ;
+                    }
+                    fflush($fp);
+                    flock($fp, LOCK_UN);
+                }else{
+                     echo 'cann\'t to comment';
+                }
+                fclose($fp);
     }else
     {
         echo 'failed to write the msg.xml' ;
@@ -185,7 +176,7 @@ function readDialog()
          
     }else
     {
-        echo 'failed to write the msg.xml' ;
+        echo 'failed to read the msg.xml' ;
     }
 }
 /* 
