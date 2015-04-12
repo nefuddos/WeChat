@@ -54,6 +54,7 @@ function clear()          //清除文本框内容
 }
 function bottom()
 {
+	bridge("","../common/readMSG.php","chat","POST");//显示msg.xml文件的信息
 	var chat = document.getElementById('chat');
 	chat.scrollTop=chat.scrollHeight;
 }
